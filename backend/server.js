@@ -4,7 +4,7 @@ const app = express();
 const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
-const publicPath = path.join(__dirname, '..',"frontend", "build");
+const publicPath = path.join(__dirname, '..', "build");
 const port = process.env.PORT || 5000;
 
 app.use(cors());
@@ -20,7 +20,7 @@ app.get("/api/products/:id", (req, res) => {
 
 app.get("/api/pictures/:for", (req, res) => {
   if (req.params.for === "slider-home") {
-    fs.readdir(path.join(__dirname, '..', "frontend", "public", "images", "slider-home"), (err, files) => {
+    fs.readdir(path.join(__dirname, '..', "build", "images", "slider-home"), (err, files) => {
       res.json(files);
     });
   }
